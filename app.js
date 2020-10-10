@@ -2,9 +2,15 @@
 const express = require('express')
 const app = express()
 const port = 3000
+// handlebars
 const exphbs = require('express-handlebars')
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
+// body parser
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: true }))
+// generate_rubbish_word.js
+const generateRubbishWord = require('./generate_rubbish_word.js')
 
 // setting static files
 app.use(express.static('public'))
@@ -15,7 +21,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/', (req, res) => {
-  res.render('index')
+  // console.log('req.body.occupation:', req.body.occupation)
+  // generateRubbishWord(req.body.occupation)
+  const option = req.body.occupation
+  const rubbishWord = generateRubbishWord(option)
+  res.render('index', { option, rubbishWord })
 })
 
 // listening
