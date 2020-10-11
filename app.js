@@ -4,8 +4,20 @@ const app = express()
 const port = 3000
 // handlebars
 const exphbs = require('express-handlebars')
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  helpers: {
+    setChecked: function (value, currentValue, option) {
+      if (value === currentValue) {
+        return option.fn(this)
+      } else {
+        return option.inverse(this)
+      }
+    }
+  }
+}))
 app.set('view engine', 'handlebars')
+
 // body parser
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))

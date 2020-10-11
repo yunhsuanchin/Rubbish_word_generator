@@ -11,7 +11,8 @@
               alt="engineer image">
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="occupation" id="engineer" value="engineer">
+            <input class="form-check-input" type="radio" name="occupation" id="engineer" value="engineer"
+              {{#setChecked option 'engineer'}}checked{{/setChecked}}>
             <label class="form-check-label" for="engineer">
               工程師
             </label>
@@ -26,7 +27,8 @@
               alt="designer image">
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="occupation" id="designer" value="designer">
+            <input class="form-check-input" type="radio" name="occupation" id="designer" value="designer"
+              {{#setChecked option 'designer'}}checked{{/setChecked}}>
             <label class="form-check-label" for="designer">
               設計師
             </label>
@@ -41,7 +43,8 @@
               alt="entrepreneur image">
           </label>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="occupation" id="entrepreneur" value="entrepreneur">
+            <input class="form-check-input" type="radio" name="occupation" id="entrepreneur" value="entrepreneur"
+              {{#setChecked option 'entrepreneur'}}checked{{/setChecked}}>
             <label class="form-check-label" for="entrepreneur">
               企業家
             </label>
@@ -51,8 +54,7 @@
 
     </div>
 
-    {{!-- Result area --}}
-    <div class="row py-5 mx-5">
+    {{!-- Result area --}} <div class="row py-5 mx-5">
       <div class="col-md-3">
         <button type="submit" class="btn btn-outline-primary" style="width: 16vw; height: 8vh;"><strong
             style="font-size: 20px;">產生幹話</strong></button>
