@@ -3,7 +3,7 @@ function taskGenerator(array) {
   return array[randomIndex]
 }
 
-function phraseGenerate(array) {
+function phraseGenerator(array) {
   const randomIndex = Math.floor(Math.random() * array.length)
   return array[randomIndex]
 }
@@ -29,18 +29,21 @@ function generateRubbishWord(option) {
   } else if (option === 'designer') {
     collection = task.designer
     // console.log('collection:', collection)
-  } else {
+  } else if (option === 'entrepreneur') {
     collection = task.entrepreneur
     // console.log('collection:', collection)
   }
 
-  // 3. generate rubbish word and return result
+  // 3. return error notice if collection is empty
+  if (!collection.length) return `You didn't choose any target!`
+
+  // 4. generate rubbish word and return result
   if (option === 'engineer') {
-    return `身為一個工程師，${taskGenerator(collection)}，${phraseGenerate(phrase)}吧！`
+    return `身為一個工程師，${taskGenerator(collection)}，${phraseGenerator(phrase)}吧！`
   } else if (option === 'designer') {
-    return `身為一個設計師，${taskGenerator(collection)}，${phraseGenerate(phrase)}吧！`
+    return `身為一個設計師，${taskGenerator(collection)}，${phraseGenerator(phrase)}吧！`
   } else {
-    return `身為一個企業家，${taskGenerator(collection)}，${phraseGenerate(phrase)}吧！`
+    return `身為一個企業家，${taskGenerator(collection)}，${phraseGenerator(phrase)}吧！`
   }
 }
 
